@@ -6,3 +6,7 @@ Version: 0.9
 Author: Francesco Franchina
 */
 
+//define( 'ACF_LITE', true );
+define('ACF_EARLY_ACCESS', '5');
+
+require_once plugin_dir_path(__FILE__) . '/lib/events.php';
