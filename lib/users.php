@@ -77,6 +77,14 @@ class users {
 
     static function register_acf_info() {
         if( function_exists('acf_add_local_field_group') ):
+            global $wpdb;
+
+            $next_id = '';
+            if ( is_admin() ) {
+                $query = "SELECT MAX( CAST(meta_value AS UNSIGNED) ) FROM $wpdb->users, $wpdb->usermeta WHERE ID=user_id AND meta_key='numero_tessera'";
+                $next_id = intval( $wpdb->get_var($query) ) + 1;
+            }
+
             acf_add_local_field_group(array(
 	            'key' => 'group_5aabd4fd85467',
 	            'title' => 'Info utente',
@@ -204,7 +212,7 @@ class users {
 				            'class' => '',
 				            'id' => '',
 			            ),
-			            'default_value' => '',
+			            'default_value' => $next_id,
 			            'placeholder' => '',
 			            'prepend' => '',
 			            'append' => '',
