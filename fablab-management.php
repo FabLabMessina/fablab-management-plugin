@@ -22,10 +22,11 @@ projects::register_post_type();
 projects::register_acf_info();
 
 users::register_acf_info();
-users::lock_acf_info();
 users::register_acf_management();
-users::edit_columns();
 
 if ( is_admin() ) {
+    users::lock_acf_info();
+    users::edit_columns();
+
     misc::add_users_export_button();
 }
