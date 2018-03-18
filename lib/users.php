@@ -15,6 +15,63 @@ function deny_user_update( $value, $post_id, $field  ) {
     }
 }
 
+function edit_columns_users( $column_headers ) {
+    unset( $column_headers ['name'] );
+    unset( $column_headers ['role'] );
+    unset( $column_headers ['posts'] );
+
+    $column_headers ['numero_tessera'] = 'Numero tessera';
+    $column_headers ['scadenza_tessera'] = 'Scadenza tessera';
+
+    return $column_headers;
+}
+
+function add_extra_columns_users( $custom_column, $column_name, $user_id ) {
+    if ( $column_name == 'numero_tessera' ) {
+        return get_field( 'numero_tessera', 'user_' . $user_id );
+    }
+
+    if ( $column_name == 'scadenza_tessera' ) {
+        $expire_date = get_field( 'scadenza_tessera', 'user_' . $user_id );
+
+        if ( $expire_date != '' ) {
+            $color = $expire_date > date('Ymd') ? 'green' : 'red';
+            $formatted_date = date( 'd-m-Y', strtotime( $expire_date ) );
+            return "<span style='color:$color'>$formatted_date</span>";
+        } else {
+            return '&mdash;';
+        }
+    }
+}
+
+function manage_extra_columns_users( $query ) {
+    if ( 'Numero tessera' == $query->get( 'orderby' ) ) {
+        $query->set( 'orderby', 'meta_value_num' );
+        $query->set( 'meta_key', 'numero_tessera' );
+    }
+
+    if ( 'Scadenza tessera' == $query->get( 'orderby' ) ) {
+        $query->set( 'orderby', 'meta_value_num' );
+        $query->set( 'meta_key', 'scadenza_tessera' );
+    }
+
+    preg_match('/^\*([0-9]+)\*$/', $query->get('search'), $matches);
+
+    if( $matches ) {
+        $meta_query = array(
+            array(
+                'key'     => 'numero_tessera',
+                'value'   => $matches[1],
+                'compare' => '='
+            )
+        );
+
+        $query->set( 'search', '' );
+        $query->set( 'meta_query', $meta_query );
+
+    }
+}
+
 
 class users {
 
@@ -348,5 +405,12 @@ class users {
 	            'description' => '',
             ));
         endif;
+    }
+
+    static function edit_columns() {
+        add_action('pre_get_users', 'manage_extra_columns_users');
+        add_action('manage_users_columns','edit_columns_users');
+        add_action('manage_users_sortable_columns','edit_columns_users');
+        add_action('manage_users_custom_column','add_extra_columns_users', 10, 3);
     }
 }

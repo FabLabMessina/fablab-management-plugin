@@ -23,3 +23,4 @@ projects::register_acf_info();
 users::register_acf_info();
 users::lock_acf_info();
 users::register_acf_management();
+users::edit_columns();
