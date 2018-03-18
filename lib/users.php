@@ -1,5 +1,20 @@
 <?php
 
+function disable_user_field( $field ) {
+    if ( !current_user_can('list_users') ) {
+        $field['disabled'] = true;
+    }
+    return $field;
+}
+
+function deny_user_update( $value, $post_id, $field  ) {
+    if ( !current_user_can('list_users') ) {
+        return get_field( $field['name'], $post_id );
+    } else {
+        return $value;
+    }
+}
+
 
 class users {
 
@@ -220,6 +235,35 @@ class users {
 	            'description' => '',
             ));
         endif;
+    }
+
+    static function lock_acf_info() {
+        add_filter( 'acf/prepare_field/name=residenza', 'disable_user_field');
+        add_filter('acf/update_value/name=residenza', 'deny_user_update', 10, 3);
+
+        add_filter( 'acf/prepare_field/name=telefono', 'disable_user_field');
+        add_filter('acf/update_value/name=telefono', 'deny_user_update', 10, 3);
+
+        add_filter( 'acf/prepare_field/name=nato_a', 'disable_user_field');
+        add_filter('acf/update_value/name=nato_a', 'deny_user_update', 10, 3);
+
+        add_filter( 'acf/prepare_field/name=nato_il', 'disable_user_field');
+        add_filter('acf/update_value/name=nato_il', 'deny_user_update', 10, 3);
+
+        add_filter( 'acf/prepare_field/name=codice_fiscale', 'disable_user_field');
+        add_filter('acf/update_value/name=codice_fiscale', 'deny_user_update', 10, 3);
+
+        add_filter( 'acf/prepare_field/name=data_registrazione', 'disable_user_field');
+        add_filter('acf/update_value/name=data_registrazione', 'deny_user_update', 10, 3);
+
+        add_filter( 'acf/prepare_field/name=numero_tessera', 'disable_user_field');
+        add_filter('acf/update_value/name=numero_tessera', 'deny_user_update', 10, 3);
+
+        add_filter( 'acf/prepare_field/name=scadenza_tessera', 'disable_user_field');
+        add_filter('acf/update_value/name=scadenza_tessera', 'deny_user_update', 10, 3);
+
+        add_filter( 'acf/prepare_field/name=crediti', 'disable_user_field');
+        add_filter('acf/update_value/name=crediti', 'deny_user_update', 10, 3);
     }
 
     static function register_acf_management() {
