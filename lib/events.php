@@ -80,7 +80,7 @@ class events {
 						            'id' => '',
 					            ),
 					            'display_format' => 'd/m/Y',
-					            'return_format' => 'yymmdd',
+					            'return_format' => 'Ymd',
 					            'first_day' => 1,
 				            ),
 				            array(

@@ -87,7 +87,7 @@ class users {
 
             acf_add_local_field_group(array(
 	            'key' => 'group_5aabd4fd85467',
-	            'title' => 'Info utente',
+                'title' => 'Info utente 🔒',
 	            'fields' => array(
 		            array(
 			            'key' => 'field_5aabd5251d4e2',
@@ -341,7 +341,7 @@ class users {
 			            'key' => 'field_5aabddfee2ad7',
 			            'label' => 'Tipologia socio',
 			            'name' => 'tipologia_socio',
-			            'type' => 'radio',
+			            'type' => 'button_group',
 			            'instructions' => '',
 			            'required' => 0,
 			            'conditional_logic' => 0,
@@ -356,8 +356,6 @@ class users {
 				            'sostenitore' => 'Sostenitore',
 			            ),
 			            'allow_null' => 0,
-			            'other_choice' => 0,
-			            'save_other_choice' => 0,
 			            'default_value' => 'ordinario',
 			            'layout' => 'horizontal',
 			            'return_format' => 'value',

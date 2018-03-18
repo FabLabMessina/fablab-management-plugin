@@ -7,7 +7,7 @@
                 "key": "field_5aabddfee2ad7",
                 "label": "Tipologia socio",
                 "name": "tipologia_socio",
-                "type": "radio",
+                "type": "button_group",
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
@@ -22,8 +22,6 @@
                     "sostenitore": "Sostenitore"
                 },
                 "allow_null": 0,
-                "other_choice": 0,
-                "save_other_choice": 0,
                 "default_value": "ordinario",
                 "layout": "horizontal",
                 "return_format": "value"
@@ -151,7 +149,7 @@
                             "id": ""
                         },
                         "display_format": "d\/m\/Y",
-                        "return_format": "yymmdd",
+                        "return_format": "Ymd",
                         "first_day": 1
                     },
                     {
@@ -406,7 +404,7 @@
     },
     {
         "key": "group_5aabd4fd85467",
-        "title": "Info utente",
+        "title": "Info utente 🔒",
         "fields": [
             {
                 "key": "field_5aabd5251d4e2",
