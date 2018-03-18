@@ -167,7 +167,7 @@ class events {
 		            array(
 			            'key' => 'field_5aab163f90ed3',
 			            'label' => 'Posti',
-			            'name' => '',
+			            'name' => 'posti',
 			            'type' => 'group',
 			            'instructions' => '',
 			            'required' => 0,
@@ -182,7 +182,7 @@ class events {
 				            array(
 					            'key' => 'field_5aab164f90ed4',
 					            'label' => 'Totali',
-					            'name' => 'posti_totali',
+					            'name' => 'totali',
 					            'type' => 'number',
 					            'instructions' => '',
 					            'required' => 0,
@@ -203,7 +203,7 @@ class events {
 				            array(
 					            'key' => 'field_5aab169690ed5',
 					            'label' => 'Disponibili',
-					            'name' => 'posti_disponibili',
+					            'name' => 'disponibili',
 					            'type' => 'number',
 					            'instructions' => '',
 					            'required' => 0,
@@ -258,7 +258,7 @@ class events {
 				            array(
 					            'key' => 'field_5aab186d2819d',
 					            'label' => 'Nome',
-					            'name' => 'contatto_nome',
+					            'name' => 'nome',
 					            'type' => 'text',
 					            'instructions' => '',
 					            'required' => 0,
@@ -277,7 +277,7 @@ class events {
 				            array(
 					            'key' => 'field_5aab172990ed7',
 					            'label' => 'Telefono',
-					            'name' => 'contatto_tel',
+					            'name' => 'tel',
 					            'type' => 'text',
 					            'instructions' => '',
 					            'required' => 0,
@@ -296,7 +296,7 @@ class events {
 				            array(
 					            'key' => 'field_5aab172990ed8',
 					            'label' => 'Email',
-					            'name' => 'contatto_email',
+					            'name' => 'email',
 					            'type' => 'text',
 					            'instructions' => '',
 					            'required' => 0,
