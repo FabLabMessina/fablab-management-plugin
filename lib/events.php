@@ -217,7 +217,7 @@ class events {
 					            'placeholder' => '',
 					            'prepend' => '',
 					            'append' => '',
-					            'min' => '',
+					            'min' => '0',
 					            'max' => '',
 					            'step' => '',
 				            ),
