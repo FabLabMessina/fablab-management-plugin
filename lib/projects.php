@@ -33,7 +33,7 @@ function cptui_register_my_cpts_progetto() {
 		"query_var" => true,
 		"menu_position" => 7,"menu_icon" => "dashicons-clipboard",		
 		"supports" => array( "title", "editor", "thumbnail" ),		
-		"taxonomies" => array( "category", "post_tag" ),		
+		"taxonomies" => array( "post_tag" ),
 	);
 	register_post_type( "progetto", $args );
 }
