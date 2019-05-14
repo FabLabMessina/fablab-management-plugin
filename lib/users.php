@@ -122,7 +122,7 @@ class users {
 				            'id' => '',
 			            ),
 			            'default_value' => '',
-			            'placeholder' => '',
+			            'placeholder' => 'Via/Piazza, Città, Prov.',
 			            'prepend' => '',
 			            'append' => '',
 			            'maxlength' => '',
