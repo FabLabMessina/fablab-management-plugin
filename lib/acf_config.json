@@ -195,16 +195,42 @@
                 ]
             },
             {
-                "key": "field_5aab1256becc9",
-                "label": "Luogo",
-                "name": "luogo",
-                "type": "google_map",
+                "center_lat": 38.1746219,
+                "center_lng": 15.5508471,
+                "zoom": 17,
+                "key": "field_6350003f7d9b0",
+                "label": "Luogo (NEW)",
+                "name": "luogo_new",
+                "aria-label": "",
+                "type": "open_street_map",
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
                     "width": "",
                     "class": "",
+                    "id": ""
+                },
+                "return_format": "raw",
+                "layers": [
+                    "OpenStreetMap.Mapnik"
+                ],
+                "allow_map_layers": 0,
+                "height": 300,
+                "max_markers": 0
+            },
+            {
+                "key": "field_5aab1256becc9",
+                "label": "Luogo",
+                "name": "luogo",
+                "aria-label": "",
+                "type": "google_map",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "hidden",
                     "id": ""
                 },
                 "center_lat": "38.196926",
